@@ -1,28 +1,49 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <cstdlib>
 
 using std::cout;
 using std::cin;
-using std::hex;
 using std:: endl;
-using std::boolalpha;
+
+void load_env(const std::string& filename){
+    std::ifstream file(filename);
+    if(!file.is_open()){
+        std::cerr << "Could not open .env file\n";
+        return;
+    }
+
+
+std::string line;
+while(std::getline(file, line)){
+    line.erase(0, line.find_first_not_of(" \t\r\n"));
+    line.erase(line.find_last_not_of(" \t\r\n") + 1 );
+
+    if(line.empty() || line[0] == '#') continue;
+    
+    size_t pos = line.find('=');
+    if(pos == std::string::npos) continue;
+
+    std::string key = line.substr(0, pos);
+    std::string value = line.substr(pos + 1);
+
+    std::string env_var = key + '=' + value;
+
+
+    _putenv(env_var.c_str());
+}
+}
 
 int main(){
-    int a, b;
+    load_env(".env");
 
-    cout <<"Please, enter a: ";
-    cin >> a;
-    cout << "Please, enter b: ";
-    cin >> b;
+    const char* age = std::getenv("age");
 
-    if(b == 0){
-        cout << "Division by zero is undefined" << endl;
+    if(age){
+        cout << "My age is " << age << endl;
     }else{
-        int c = a % b;
-        if(c == 0){
-            cout << "a is divisible by b without reminder" << endl;
-        }else{
-            cout << "a is divisible by b with reminder " << c << endl;
-        }
+        cout << "Variable is not found in environment." << endl;
     }
     
     return 0;
