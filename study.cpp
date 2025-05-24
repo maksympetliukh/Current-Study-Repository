@@ -7,14 +7,21 @@ using std:: endl;
 using std::boolalpha;
 
 int main(){
-    int a {5};
-    int b {3};
+    int a, b;
 
-    if(int rem{a % b}; rem ==0){
-        cout << "a divisible by b" << endl;
-    }else{
-        cout << "remaining of a/b = " << rem << endl;
+    cout <<"Please, enter a: ";
+    cin >> a;
+    cout << "Please, enter b: ";
+    cin >> b;
+
+    if(a > b){
+        cout << "a is greater than b" << endl;
     }
-
+    else if(a == b){
+        cout << "a is equal to b" << endl;
+    }else{
+        cout << "a is less than b";
+    }
+    
     return 0;
 }
