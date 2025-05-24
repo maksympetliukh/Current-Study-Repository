@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdio.h": "c",
+			"windows.h": "c",
+			"iostream": "cpp",
+			"cstdlib": "cpp"
+		}
+	}
+}
