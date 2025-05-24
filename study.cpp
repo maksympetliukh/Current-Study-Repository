@@ -14,7 +14,6 @@ void load_env(const std::string& filename){
         return;
     }
 
-
 std::string line;
 while(std::getline(file, line)){
     line.erase(0, line.find_first_not_of(" \t\r\n"));
