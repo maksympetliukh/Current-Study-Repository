@@ -7,13 +7,13 @@ using std:: endl;
 using std::boolalpha;
 
 int main(){
-    int a {10};
-    int b {4};
+    int a {5};
+    int b {3};
 
-    if((a + b) < 15){
-        cout << "Statement is true" << endl;
+    if(int rem{a % b}; rem ==0){
+        cout << "a divisible by b" << endl;
     }else{
-        cout << "Statement is false" << endl;
+        cout << "remaining of a/b = " << rem << endl;
     }
 
     return 0;
