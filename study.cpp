@@ -14,13 +14,15 @@ int main(){
     cout << "Please, enter b: ";
     cin >> b;
 
-    if(a > b){
-        cout << "a is greater than b" << endl;
-    }
-    else if(a == b){
-        cout << "a is equal to b" << endl;
+    if(b == 0){
+        cout << "Division by zero is undefined" << endl;
     }else{
-        cout << "a is less than b";
+        int c = a % b;
+        if(c == 0){
+            cout << "a is divisible by b without reminder" << endl;
+        }else{
+            cout << "a is divisible by b with reminder " << c << endl;
+        }
     }
     
     return 0;
